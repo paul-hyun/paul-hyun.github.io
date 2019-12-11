@@ -1,7 +1,7 @@
 # Site
-name: "reonforce NLP Blog"
-title: "reonforce NLP Blog"
-description: "The Blog for Reinforce Learning with Natural Language Process"
+name: "Reonforce NLP"
+title: "Reonforce NLP"
+description: "Reinforce Learning with Natural Language Process"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: https://paul-hyun.github.io
