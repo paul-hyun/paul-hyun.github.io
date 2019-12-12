@@ -13,23 +13,15 @@ permalink: /:title/
 
 # Authors
 authors:
-  sal:
-    name: Sal
-    display_name: Sal
-    gravatar: e56154546cf4be74e393c62d1ae9f9d4
-    email: cchyun@gmail.com
-    web: https://www.ddambbang.com
-    twitter: https://twitter.com/cchyun
-    description: "Paul-hyun."
-  john:
-    name: John
-    display_name: John    
-    avatar: 'assets/images/avatar.png'
+  cchyun:
+    name: cchyun
+    display_name: cchyun    
+    avatar: 'assets/images/cchyun_profile.png'
     gravatar: b1cc14991db7a456fcd761680bbc8f81
     email: cchyun@gmail.com
     web: https://www.ddambbang.com
     twitter: https://twitter.com/cchyun
-    description: "This site for Reinforce Learning with Natural Language Process."
+    description: "Reinforce NLP Developer"
 
 # Plugins
 plugins:
