@@ -24,7 +24,7 @@ comments: false
             <li>2nd Place @ Intent Classification of AI Starthon 2019 (NIPA, Naver)</li>
             <li>3rd Place @ Query Classification of AI Starthon 2019 (NIPA, Naver)</li>
             <li>4th Place @ Movie Rating Classification of AI Starthon 2019 (NIPA, Naver)</li>
-            <li>7th Place @ Named Entity Recognition of NLP Challenge (NAVER, Changwon univ)</li>
+            <li>6th Place @ Named Entity Recognition of NLP Challenge (NAVER, Changwon univ)</li>
         </ul>
         <h4>History</h4>
         <ul>
