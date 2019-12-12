@@ -147,7 +147,7 @@ for line in lines:
 
 자세한 내용은 다음을 참고 하세요.
 
-- [vocab-with-sentencepiece](https://github.com/google/sentencepiece/blob/master/python/sentencepiece_python_module_example.ipynb){:target="_blank"}
+- [vocab-with-sentencepiece](https://github.com/paul-hyun/transformer-evolution/blob/master/tutorial/vocab_with_sentencepiece.ipynb){:target="_blank"}
 - [sentencepiece_python_module_example](https://github.com/google/sentencepiece/blob/master/python/sentencepiece_python_module_example.ipynb){:target="_blank"}
 - [sentencepiece.py](https://github.com/google/sentencepiece/blob/master/python/sentencepiece.py){:target="_blank"}
 
