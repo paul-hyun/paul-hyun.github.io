@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Paul Hyun
+title: About cchyun
 permalink: /about
 comments: false
 ---
@@ -36,7 +36,7 @@ comments: false
     </div>
     <div class="col-md-4">
         <div class="sticky-top sticky-top-80">
-            <h5>Paul Hyun</h5>
+            <h5>cchyun</h5>
             <img src="assets/images/cchyun_profile.png" style="max-width: 240px; object-fit: contain;" />
             <p></p>
             <p>안녕하세요, 개발과 공부가 취미인 개발자 현청천 입니다.</p>
