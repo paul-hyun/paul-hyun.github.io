@@ -95,8 +95,21 @@ spm.SentencePieceTrainer.train(
     " --unk_id=1 --unk_piece=[UNK]" + # unknown (1)
     " --bos_id=2 --bos_piece=[BOS]" + # begin of sequence (2)
     " --eos_id=3 --eos_piece=[EOS]" + # end of sequence (3)
-    " --user_defined_symbols=[SEP],[CLS],[MASK]") # 기타 추가 토큰
+    " --user_defined_symbols=[SEP],[CLS],[MASK]") # 사용자 정의 토큰
 ```
+
+옵션은 다음과 같습니다.
+- input: 입력 corpus
+- prefix: 저장할 모델 이름
+- vocab_size: vocab 개수 (기본 32,000에 스페셜 토큰 7개를 더해서 32,007개)
+- max_sentence_length: 문장의 최대 길이
+- pad_id, pad_piece: pad token id, 값
+- unk_id, unk_piece: unknown token id, 값
+- bos_id, bos_piece: begin of sentence token id, 값
+- eos_id, eos_piece: end of sequence token id, 값
+- user_defined_symbols: 사용자 정의 토큰
+
+참고로 vocab_size의 경우 Etri korbert는 32,000개 Skt kobert는 8,000개를 사용 합니다.
 
 이 코드는 실행하는데 상당히 오랜 시간이 필요 합니다.
 vocab 성성이 완료되면 kowiki.model, kowiki.vocab 파일 두개가 생성 됩니다.
