@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Make Vocab with Sentencepiece"
+title:  "Sentencepiece를 활용해 Vocab 만들기"
 author: cchyun
 categories: [ NLP ]
 tags: [ vocab, sentencepiece, kowiki ]
