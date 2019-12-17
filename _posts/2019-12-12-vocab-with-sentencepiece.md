@@ -121,7 +121,7 @@ vocab 성성이 완료되면 kowiki.model, kowiki.vocab 파일 두개가 생성 
 ```python
 import sentencepiece as spm
 
-vocab_file = f"{data_dir}/kowiki.model"
+vocab_file = "<path of vocab>/kowiki.model"
 vocab = spm.SentencePieceProcessor()
 vocab.load(vocab_file)
 
@@ -160,7 +160,7 @@ for line in lines:
 
 자세한 내용은 다음을 참고 하세요.
 
-- [vocab-with-sentencepiece](https://github.com/paul-hyun/transformer-evolution/blob/master/tutorial/vocab_with_sentencepiece.ipynb){:target="_blank"}
+- [vocab_with_sentencepiece.ipynb](https://github.com/paul-hyun/transformer-evolution/blob/master/tutorial/vocab_with_sentencepiece.ipynb){:target="_blank"}
 - [vocab.py](https://github.com/paul-hyun/transformer-evolution/blob/master/vocab.py){:target="_blank"}
 - [sentencepiece_python_module_example](https://github.com/google/sentencepiece/blob/master/python/sentencepiece_python_module_example.ipynb){:target="_blank"}
 - [sentencepiece.py](https://github.com/google/sentencepiece/blob/master/python/sentencepiece.py){:target="_blank"}
