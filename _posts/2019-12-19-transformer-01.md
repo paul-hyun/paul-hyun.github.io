@@ -460,6 +460,7 @@ torch.Size([2, 8, 128])
 위 그림 수식 중 6번 Linear 과정 입니다.  
 
 ```python
+linear = nn.Linear(n_head * d_head, d_hidn)
 # (bs, n_seq, d_hidn)
 output = linear(context)
 print(output.size())
