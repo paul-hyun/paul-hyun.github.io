@@ -661,7 +661,7 @@ class PoswiseFeedForwardNet(nn.Module):
 
 #### 7. 참고
 
-다음 포스트 'Transformer (Attention Is All You Need) 구현하기 (2/3)'에서는 Encoder, Decoder 및 Transformer 모델 전체에 대한 내용을 정리 하겠습니다.
+다음 포스트 [Transformer (Attention Is All You Need) 구현하기 (2/3)](../transformer-02/)에서는 Encoder, Decoder 및 Transformer 모델 전체에 대한 내용을 정리 하겠습니다.
 
 자세한 내용은 다음을 참고 하세요.
 
