@@ -15,7 +15,7 @@ hidden: true
 
 Transformer와 같은 Encoder-Decoder 모델은 번역이나 채팅 데이터를 학습하는게 일반적이지만 이후 포스팅할 Pretrained Language Model과 각단한 성능 비교를 위해 Naver 영화리뷰 감정분석을 학습해 보도록 하겠습니다.
 
-이 포스트는 Transformer를 모델 구현에 대한 설명 입니다. 논문에 대한 내용은 [Attention Is All You Need](https://arxiv.org/abs/1706.03762){:target="_blank"} 논문을 참고 하거나 블로그를 참고 하세요.
+이 포스트는 Transformer 모델 구현에 대한 설명 입니다. 논문에 대한 내용은 [Attention Is All You Need](https://arxiv.org/abs/1706.03762){:target="_blank"} 논문을 참고 하거나 블로그를 참고 하세요.
 
 ###### 미리 확인해야할 포스트
 
