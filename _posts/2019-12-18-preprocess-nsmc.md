@@ -6,8 +6,8 @@ categories: [ NLP ]
 tags: [ transformer, attention ]
 image: assets/2019-12-18/demonstration-767864_640.jpg
 description: "How to implement the transformer model"
-featured: true
-hidden: true
+featured: false
+hidden: false
 # rating: 4.5
 ---
 

@@ -6,8 +6,8 @@ categories: [ NLP ]
 tags: [ vocab, sentencepiece, kowiki ]
 image: assets/2019-12-12/dictionary-1619740_640.jpg
 description: "How to make vocabulary by google sentencepiece"
-featured: true
-hidden: true
+featured: false
+hidden: false
 # rating: 4.5
 ---
 
