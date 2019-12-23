@@ -13,7 +13,7 @@ hidden: true
 
 [Transformer (Attention Is All You Need) 구현하기 (1/3)](../transformer-01/)에서 포스팅된 내용을 기반으로 Encoder, Decoder 및 Transformer 모델 전체를 설명 하겠습니다.
 
-이 포스트는 Transformer 모델 구현에 대한 설명 입니다. 논문에 대한 내용은 [Attention Is All You Need](https://arxiv.org/abs/1706.03762){:target="_blank"} 논문을 참고 하거나 블로그를 참고 하세요.
+이 포스트는 Transformer 모델 구현에 대한 설명 입니다. 논문에 대한 내용은 [Attention Is All You Need](https://arxiv.org/abs/1706.03762){:target="_blank"} 논문을 참고 하거나 다른 블로그를 참고 하세요.
 
 ###### 미리 확인해야할 포스트
 
