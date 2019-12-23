@@ -23,7 +23,7 @@ hidden: true
 
 #### 1. Config
 
-[Transformer (Attention Is All You Need) 구현하기 (1/3)](../transformer-01/)에서 코드처럼 Transformer 모델에는 많은 설정이 필요합니다. 이 설정을 json 형태로 저장을 하고 이를 읽어서 처리하는 간단한 클래스 입니다.
+[Transformer (Attention Is All You Need) 구현하기 (1/3)](../transformer-01/)의 코드처럼 Transformer 모델에는 많은 설정이 필요합니다. 이 설정을 json 형태로 저장을 하고 이를 읽어서 처리하는 간단한 클래스 입니다.
 
 ```python
 """ configuration json을 읽어들이는 class """
@@ -38,7 +38,7 @@ class Config(dict):
             return Config(config)
 ```
 
-작은 리소스에서도 동작 가능하도록 여러 파라미터를 작게 설정 했습니다. 가지고 계신 GPU가 여유가 있다면 파라미터를 키우면 더 좋은 결과를 확인 하 실 수 있을 겁니다. 기본 파라미터는 [config.json](https://github.com/paul-hyun/transformer-evolution/blob/master/transformer/config.json){:target="_blank"}을 참고 하세요.
+작은 리소스에서도 동작 가능하도록 여러 파라미터를 작게 설정 했습니다. 가지고 계신 GPU가 여유가 있다면 파라미터를 키우면 더 좋은 결과를 확인 할 수 있을 겁니다. 기본 파라미터는 [config.json](https://github.com/paul-hyun/transformer-evolution/blob/master/transformer/config.json){:target="_blank"}을 참고 하세요.
 
 ```python
 config = Config({
