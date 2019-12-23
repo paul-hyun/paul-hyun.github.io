@@ -243,7 +243,8 @@ for epoch in range(n_epoch):
 
 #### 5. Result
 
-학습결과 및 평가결과는 아래와 같습니다.
+학습결과 및 평가결과는 아래와 같습니다.  
+정확도(score)가 83.4% 정도 나왔습니다.  
 
 ```python
 data = {
