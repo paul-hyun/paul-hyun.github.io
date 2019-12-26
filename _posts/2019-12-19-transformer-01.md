@@ -80,7 +80,7 @@ input_embs = nn_emb(inputs) # input embedding
 print(input_embs.size())
 ```
 
-위와 같이 inputs(2, 7)에 대한 embedding값 input_embs(2, 7, 128) shape을 갖습니다.
+위와 같이 inputs(2, 8)에 대한 embedding값 input_embs(2, 8, 128) shape을 갖습니다.
 
 ```text
 torch.Size([2, 8, 128])
@@ -142,7 +142,7 @@ positions = torch.arange(inputs.size(1), device=inputs.device, dtype=inputs.dtyp
 pos_mask = inputs.eq(0)
 
 positions.masked_fill_(pos_mask, 0)
-pos_embs = nn_emb(positions) # position embedding
+pos_embs = nn_pos(positions) # position embedding
 
 print(inputs)
 print(positions)
