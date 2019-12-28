@@ -443,11 +443,12 @@ class Transformer(nn.Module):
 
 #### 6. 참고
 
-다음 포스트 'Transformer (Attention Is All You Need) 구현하기 (3/3)'에서는 Transformer를 이용해서 'Naver 영화리뷰 감정분석' 과정을 정리 하겠습니다.
+다음 포스트 [Transformer (Attention Is All You Need) 구현하기 (3/3)](../transformer-03/)에서는 Transformer를 이용해서 'Naver 영화리뷰 감정분석' 과정을 정리 하겠습니다.
 
 자세한 내용은 다음을 참고 하세요.
 
 - [transformer-02.ipynb](https://github.com/paul-hyun/transformer-evolution/blob/master/tutorial/transformer-02.ipynb){:target="_blank"}
 - [model.py](https://github.com/paul-hyun/transformer-evolution/blob/master/transformer/model.py){:target="_blank"}
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762){:target="_blank"}
+- [데이터 및 결과 파일](https://drive.google.com/open?id=15XGr-L-W6DSoR5TbniPMJASPsA0IDTiN){:target="_blank"}
 
