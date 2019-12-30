@@ -26,7 +26,7 @@ Transformer는 자연어처리에서 가장 중요한 논문이라고 생각이 
 
 ```python
 # vocab loading
-vocab_file = f"{data_dir}/kowiki.model"
+vocab_file = "<path of data>/kowiki.model"
 vocab = spm.SentencePieceProcessor()
 vocab.load(vocab_file)
 

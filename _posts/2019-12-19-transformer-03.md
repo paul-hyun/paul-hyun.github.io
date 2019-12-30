@@ -143,7 +143,7 @@ def eval_epoch(config, model, data_loader):
 
     n_word_total = 0
     n_correct_total = 0
-    with tqdm_notebook(total=len(data_loader), desc=f"Valid") as pbar:
+    with tqdm(total=len(data_loader), desc=f"Valid") as pbar:
         for i, value in enumerate(data_loader):
             labels, enc_inputs, dec_inputs = map(lambda v: v.to(config.device), value)
 
@@ -175,7 +175,7 @@ def train_epoch(config, epoch, model, criterion, optimizer, train_loader):
     losses = []
     model.train()
 
-    with tqdm_notebook(total=len(train_loader), desc=f"Train {epoch}") as pbar:
+    with tqdm(total=len(train_loader), desc=f"Train {epoch}") as pbar:
         for i, value in enumerate(train_loader):
             labels, enc_inputs, dec_inputs = map(lambda v: v.to(config.device), value)
 
@@ -244,9 +244,10 @@ for epoch in range(n_epoch):
 #### 5. Result
 
 학습결과 및 평가결과는 아래와 같습니다.  
-정확도(score)가 83.4% 정도 나왔습니다.  
+정확도(score)가 83.5% 정도 나왔습니다.  
 
 ```python
+# table
 data = {
     "loss": losses,
     "score": scores
@@ -255,28 +256,28 @@ df = pd.DataFrame(data)
 display(df)
 
 # graph
-plt.figure(figsize=[8, 4])
-plt.plot(losses)
-plt.plot(scores)
-plt.xlabel('Depth')
-plt.xlim((0, n_epoch - 1))
-plt.ylabel('Position')
+plt.figure(figsize=[12, 4])
+plt.plot(losses, label="loss")
+plt.plot(scores, label="score")
+plt.legend()
+plt.xlabel('Epoch')
+plt.ylabel('Value')
 plt.show()
 ```
 
 {:class="table table-bordered"}
 | loss     | score    |
 |----------|----------|
-| 0.482965 | 0.803348 |
-| 0.404563 | 0.808489 |
-| 0.377611 | 0.819709 |
-| 0.356547 | 0.820049 |
-| 0.335104 | 0.829430 |
-| 0.314536 | 0.829670 |
-| 0.293207 | 0.832370 |
-| 0.270358 | 0.822509 |
-| 0.245801 | 0.828670 |
-| 0.224932 | 0.834970 |
+| 0.484429 | 0.802268 |
+| 0.403221 | 0.817009 |
+| 0.375795 | 0.812249 |
+| 0.355647 | 0.826450 |
+| 0.334026 | 0.829990 |
+| 0.313187 | 0.827850 |
+| 0.291726 | 0.834270 |
+| 0.268704 | 0.834070 |
+| 0.245113 | 0.834710 |
+| 0.220757 | 0.833990 |
 
 ![](../assets/2019-12-19/nsmc-result.png)
 
