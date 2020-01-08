@@ -77,5 +77,5 @@ prepare_train(vocab, "<path of data>/ratings_test.txt", "<path of data>/ratings_
 - [preprocess_nsmc.ipynb](https://github.com/paul-hyun/transformer-evolution/blob/master/tutorial/preprocess_nsmc.ipynb){:target="_blank"}
 - [common_data.py](https://github.com/paul-hyun/transformer-evolution/blob/master/common_data.py){:target="_blank"}
 - [Naver sentiment movie corpus](https://github.com/e9t/nsmc){:target="_blank"}
-- [데이터 및 결과 파일](https://drive.google.com/open?id=15XGr-L-W6DSoR5TbniPMJASPsA0IDTiN){:target="_blank"}
+- [데이터 파일](https://drive.google.com/open?id=15XGr-L-W6DSoR5TbniPMJASPsA0IDTiN){:target="_blank"}
 

@@ -290,5 +290,5 @@ plt.show()
 - [data.py](https://github.com/paul-hyun/transformer-evolution/blob/master/transformer/data.py){:target="_blank"}
 - [train.py](https://github.com/paul-hyun/transformer-evolution/blob/master/transformer/train.py){:target="_blank"}
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762){:target="_blank"}
-- [데이터 및 결과 파일](https://drive.google.com/open?id=15XGr-L-W6DSoR5TbniPMJASPsA0IDTiN){:target="_blank"}
+- [데이터 파일](https://drive.google.com/open?id=15XGr-L-W6DSoR5TbniPMJASPsA0IDTiN){:target="_blank"}
 
