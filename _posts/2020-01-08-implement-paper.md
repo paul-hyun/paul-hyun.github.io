@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "논문구현 (Transformer, GPT, BERT, T5)"
+title:  "NLP 논문 구현 (Transformer, GPT, BERT, T5)"
 author: cchyun
 categories: [ NLP ]
 tags: [ transformer, attention, bert ]
 image: assets/2020-01-08/implement-2372179_640.jpg
-description: "Implement Paper for Transformer, GPT, BERT, T5"
+description: "Implement NLP Paper for Transformer, GPT, BERT, T5"
 featured: true
 hidden: true
 # rating: 4.5
@@ -35,7 +35,11 @@ hidden: true
 - [BERT(Bidirectional Encoder Representations from Transformers) 구현하기 (1/2)](../bert-01/)
 - [BERT(Bidirectional Encoder Representations from Transformers) 구현하기 (2/2)](../bert-02/)
 
-#### 5. 참고
+#### 5. T5 (Text-To-Text Transfer Transformer)
+
+- 준비 중 입니다.
+
+#### 6. 참고
 
 - [tutorial](https://github.com/paul-hyun/transformer-evolution/blob/master/tutorial/){:target="_blank"}
 - [데이터 파일](https://drive.google.com/open?id=15XGr-L-W6DSoR5TbniPMJASPsA0IDTiN){:target="_blank"}
