@@ -59,9 +59,9 @@ hidden: false
   - 데이터를 이용해서 모델을 학습하는 과정입니다.
 - **테스트**
   - 학습된 모델을 테스트하는 과정입니다.
-  - 모델을 테스트해서 성능이 기준치보다 좋으면 서비스에 배치 합니다.
+  - 모델을 테스트해서 성능이 기준치보다 좋으면 서비스에 배포 합니다.
   - 만일 모델의 성능이 기준치보다 성능이 낮은 경우는 원인을 분석하고 문제가 된다고 생각되는 과정으로 돌아가서 그 과정을 개선하고 다시 학습하고 테스트해 봅니다.
-- **배치**
+- **배포**
   - 학습된 모델을 이용하여 실제 문제에 적용해서 문제를 개선하는 과정입니다.
 
 이제 workflow에 따라서 최대한 간략하게 프로젝트를 진행해 보겠습니다.
@@ -318,7 +318,7 @@ class SimpleDataSet(torch.utils.data.Dataset):
 
     def collate_fn(self, batch):
         """
-        배치단위로 데이터 처리
+        batch단위로 데이터 처리
         :param batch: batch 단위 데이터
         """
         inputs, labels = list(zip(*batch))
@@ -343,7 +343,7 @@ class SimpleDataSet(torch.utils.data.Dataset):
 - def &#95;&#95;get_item&#95;&#95;(self, index):
   - DataSet에서 한 개의 특정한 item을 조회할 때 사용합니다.
 - def collate_fn(self, batch):
-  - 배치단위로 데이터를 처리할 때 사용합니다. 위 함수는 입력문장의 길이가 다를 경우 짧은 문장의 뒷부분에 [PAD]를 의미하는 0을 추가해서 문장의 길이를 동일하게 만들어주는 역할을 합니다. PAD(0)은 vocabulary에 정의된 값입니다.
+  - batch단위로 데이터를 처리할 때 사용합니다. 위 함수는 입력문장의 길이가 다를 경우 짧은 문장의 뒷부분에 [PAD]를 의미하는 0을 추가해서 문장의 길이를 동일하게 만들어주는 역할을 합니다. PAD(0)은 vocabulary에 정의된 값입니다.
 
 이제 DataSet 클래스를 생성합니다.
 
@@ -616,9 +616,9 @@ def train_epoch(args, model, loader, loss_fn, optimizer):
 
 - **line 11**: 모델을 train 모드로 변경합니다.
 - **line 13**: loss를 저장할 변수 'losses'와 accuracy를 저장할 변수 'access'를 생성합니다.
-- **line 15**: data loader로부터 데이터를 배치단위로 읽어옵니다. 배치단위로 읽는 이유는 학습할 데이터는 보통 몇천 개 이상일 경우가 많은데 이것을 한꺼번에 처리가 불가능하기 때문에 나눠서 처리합니다. 이처럼 배치단위로 처리하는 1번의 과정을 step이라고 합니다.
+- **line 15**: data loader로부터 데이터를 batch단위로 읽어옵니다. batch단위로 읽는 이유는 학습할 데이터는 보통 몇천 개 이상일 경우가 많은데 이것을 한꺼번에 처리가 불가능하기 때문에 나눠서 처리합니다. 이처럼 batch단위로 처리하는 1번의 과정을 step이라고 합니다.
 - **line 17**: 'optimizer'의 gradient를 모두 0으로 초기화 합니다. 즉 이전에 step에서 계산된 gradient를 0으로 변경 합니다.
-- **line 19**: 배치단위 입력을 GPU 또는 CPU에 로딩합니다. CPU를 사용하는 경우라면 이미 로딩되어 있음으로 의미 없는 부분입니다. 그렇지만 이렇게 구현하면 CPU/GPU 둘 다 수정 없이 동작합니다.
+- **line 19**: batch단위 입력을 GPU 또는 CPU에 로딩합니다. CPU를 사용하는 경우라면 이미 로딩되어 있음으로 의미 없는 부분입니다. 그렇지만 이렇게 구현하면 CPU/GPU 둘 다 수정 없이 동작합니다.
 - **line 21**: 'inputs'을 입력으로 모델의 'forward'함수를 실행하고 결과로 'logits'을 받습니다.
 - **line 23~24**: loss 함수 'loss_fn'을 이용해 loss를 계산하고 loss의 'backward' 함수를 실행해서 미분을 통해 gradient를 구합니다.
 - **line 26**: 'optimizer'를 이용해서 model의 paramters 값들을 loss가 감소하는 방향으로 변경합니다.
@@ -665,8 +665,8 @@ def eval_epoch(args, model, loader, loss_fn):
 - **line 10**: 모델을 eval 모드로 변경합니다.
 - **line 12**: loss를 저장할 변수 'losses'와 accuracy를 저장할 변수 'access'를 생성합니다.
 - **line 14**: pytorch가 gradient를 계산하지 않도록 선언합니다. 
-- **line 15**: data loader로부터 데이터를 배치단위로 읽어옵니다.
-- **line 17**: 배치단위 입력을 GPU 또는 CPU에 로딩합니다.
+- **line 15**: data loader로부터 데이터를 batch단위로 읽어옵니다.
+- **line 17**: batch단위 입력을 GPU 또는 CPU에 로딩합니다.
 - **line 19**: 'inputs'을 입력으로 모델의 'forward'함수를 실행하고 결과로 'logits'을 받습니다.
 - **line 21**: loss 함수 'loss_fn'을 이용해 loss를 계산합니다.
 - **line 23~24**: 'loss'에서 값을 받아서 'losses'에 저장합니다.
@@ -773,7 +773,7 @@ draw_history(history)
 
 #### 8. 테스트
 
-이제 학습된 모델을 테스트해 봅니다. 모델을 테스트하는 이유는 이 모델이 실제 현장에 배치가 가능한지를 확인해보기 위함입니다. 실제 상황에서는 더 다양하고 엄밀하게 테스트를 진행해야 합니다.
+이제 학습된 모델을 테스트해 봅니다. 모델을 테스트하는 이유는 이 모델이 실제 현장에 배포가 가능한지를 확인해보기 위함입니다. 실제 상황에서는 더 다양하고 엄밀하게 테스트를 진행해야 합니다.
 
 
 우선 테스트용 모델을 생성합니다.
@@ -858,15 +858,15 @@ print(valid_loss, valid_acc)
 
 만일 테스트 결과가 만족스럽지 않다면 이전 과정 ('데이터', 'vocabulary 생성', '학습 및 평가용 데이터 생성', '모델링', '학습') 중에서 성능 저하의 원인이 되는 부분을 개선하고 학습하고 테스트하는 과정을 반복해야 합니다. 이런 시행착오를 줄이기 위한 효과적인 방법은 많은 논문 또는 블로그를 참고하는 것입니다.
 
-#### 9. 배치
+#### 9. 배포
 
 이제 테스트 과정이 잘 되었다는 가정하에서 학습됨 모델을 이용해 간단하게 사용자 입력을 받아서 단어의 명사 여부를 예측해 보겠습니다.
 
 
-우선 배치용 모델을 생성합니다. 하고 학습된 weights로 모델을 초기화합니다.
+우선 배포용 모델을 생성합니다. 하고 학습된 weights로 모델을 초기화합니다.
 
 ```python
-# 배치용 모델 생성
+# 배포용 모델 생성
 model = SequencePrediction(len(word_to_id))
 model.to(args.device)
 
