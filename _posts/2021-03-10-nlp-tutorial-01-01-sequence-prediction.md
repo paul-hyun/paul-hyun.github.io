@@ -2,7 +2,7 @@
 layout: post
 title:  "간단한 단어분류 프로젝트를 통한 자연어처리 이해"
 author: cchyun
-categories: [ NLP ]
+categories: [ NLP-tutorial ]
 tags: [ NLP, learing-by-doing, basic-project ]
 image: assets/2021-03-10/letters-2178219_640.jpeg
 description: "NLP Basic Tutorial - Sequence Prediction Project"
