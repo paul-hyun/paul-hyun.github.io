@@ -11,11 +11,9 @@ hidden: false
 # rating: 4.5
 ---
 
-![](../assets/2021-03-10/learning-by-doing.png)
-
-
 많은 분이 자연어처리를 처음 접하게 되면 새로운 개념으로 인해 어려워합니다. 이 포스트는 자연어처리를 처음 접하고 어려워하는 분들이 직접 간단한 프로젝트를 만들어 보면서 자연어처리의 개념을 이해할 수 있도록 하는 데 목적이 있습니다.
 
+![](../assets/2021-03-10/learning-by-doing.png)
 
 전체적인 개념을 이해에 목적이 있음으로 전체 과정을 최대한 간단한 내용으로 설명하고 자세한 내용은 추후 다른 포스트를 통해서 보완할 예정입니다. 그러므로 설명이 부족한 부분이 있더라도 우선 전체적인 개념을 이해하는 데 목적을 두고 보시길 바랍니다.
 
@@ -25,8 +23,8 @@ hidden: false
 
 **소스코드**
 
-- Colab에서 동작하는 소스코드는 [01-01-sequence-prediction.ipynb]()을 참고하시면 됩니다.
-- 로컬 컴퓨터에서 동작하는 소스코드는 [01-01-sequence-prediction.py]()를 참고하시면 됩니다.
+- Colab에서 동작하는 소스코드는 [01-01-sequence-prediction.ipynb](https://github.com/paul-hyun/torch-nlp-tutorial/blob/main/01-simple-project/01-01-sequence-prediction.ipynb){:target="_blank"}을 참고하시면 됩니다.
+- 로컬 컴퓨터에서 동작하는 소스코드는 [01-01-sequence-prediction.py](https://github.com/paul-hyun/torch-nlp-tutorial/blob/main/01-simple-project/01-01-sequence-prediction.py){:target="_blank"}를 참고하시면 됩니다.
 
 
 #### 1. 프로젝트의 목적
