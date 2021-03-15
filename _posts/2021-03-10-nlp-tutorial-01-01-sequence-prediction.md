@@ -3,7 +3,7 @@ layout: post
 title:  "간단한 단어분류 프로젝트를 통한 자연어처리 이해"
 author: cchyun
 categories: [ NLP ]
-tags: [ NLP, tutorial, basic-project ]
+tags: [ NLP, learing-by-doing ]
 image: assets/2021-03-10/letters-2178219_640.jpeg
 description: "NLP Basic Tutorial - Sequence Prediction Project"
 featured: false
@@ -11,9 +11,11 @@ hidden: false
 # rating: 4.5
 ---
 
+![](../assets/2021-03-10/learning-by-doing.png)
+
+
 많은 분이 자연어처리를 처음 접하게 되면 새로운 개념으로 인해 어려워합니다. 이 포스트는 자연어처리를 처음 접하고 어려워하는 분들이 직접 간단한 프로젝트를 만들어 보면서 자연어처리의 개념을 이해할 수 있도록 하는 데 목적이 있습니다.
 
-<span style="color:blue">***Learning by Doing***</span>
 
 전체적인 개념을 이해에 목적이 있음으로 전체 과정을 최대한 간단한 내용으로 설명하고 자세한 내용은 추후 다른 포스트를 통해서 보완할 예정입니다. 그러므로 설명이 부족한 부분이 있더라도 우선 전체적인 개념을 이해하는 데 목적을 두고 보시길 바랍니다.
 
@@ -36,7 +38,11 @@ hidden: false
 위 그림과 같이 단어가 명사일 경우는 1을 명사가 아닌 경우는 0을 예측 합니다.
 
 
-이와같이 문장에 대한 각 단어별로 예측하는 대표적인 Task는 [NER(Named Entity Recognition)](https://m.blog.naver.com/PostView.nhn?blogId=koys007&logNo=221403872271&proxyReferer=https:%2F%2Fwww.google.com%2F){:target="_blank"}로 문장 내에서 ‘사람’, ‘장소’, ‘시간’, ‘단체’ 등의 정보를 분류하는 모델입니다.
+이와 같이 각 단어별로 예측하는 Task는 다음과 같은 종류들이 있습니다.
+- **NER(Named Entity Recognition)**: 문장 내의 각 단어를 ‘사람’, ‘장소’, ‘시간’, ‘단체’, ‘기타’ 등의 정보를 분류하는 Task입니다.
+- **POS(Part of Speech) Tagging**: 문장 내의 각 단어를 '명사', '동사', '부사' 등 품사로 분류하는 Task입니다.
+- **Language Model**: 생성할 문장의 각 단어에 대한 다음 단어를 예측하는 방식으로 동작합니다. 대표적인 것으로는 '기계번역', '문서요약', '대화' 등 다양한 Task가 있습니다.
+- **기타**: 그 외에도 다양한 Task가 있습니다.
 
 
 #### 2. 프로제트 Workflow
