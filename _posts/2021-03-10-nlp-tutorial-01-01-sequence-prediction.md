@@ -135,6 +135,7 @@ torch.cuda.manual_seed_all(args.seed)
 
 Random seed를 설정하는 이유는 pytorch가 random하게 초깃값을 설정하는데 이 값이 다를 경우 학습 결과가 달라질 수 있어서 항상 같은 값을 가지도록 하기 위해서입니다. Random seed 값은 임의의 값을 사용하면 됩니다.
 
+
 #### 4. 데이터
 
 목적에 맞는 데이터를 수집하고 정답 라벨을 만드는 과정은 엄청나게 어렵고 또한 중요한 과정입니다. 전체 과정 중 가장 중요한 과정이라고 할 수 있습니다.
@@ -404,6 +405,7 @@ dataset = SimpleDataSet(inputs, labels)
 test_loader = torch.utils.data.DataLoader(dataset, batch_size=args.n_batch, sampler=None, collate_fn=dataset.collate_fn)
 ```
 
+
 #### 7.1. 모델링 (Tutorial)
 
 이제 단어분류를 할 모델을 생성합니다. 간단하게 모델의 동작을 직접 확인해 본 후 모델 클래스를 생성해 보도록 하겠습니다.
@@ -480,6 +482,7 @@ print(loss)
 tensor(0.9451, grad_fn=<NllLossBackward>)
 ```
 
+
 #### 7.2. 모델링 (Class)
 
 모델링 (Tutorial) 과정에서 CrossEntropy loss를 계산하는 과정을 제외한 나머지 과정을 하나의 클래스로 만들면 아래와 같습니다.
@@ -538,6 +541,7 @@ SequencePrediction(
   (linear): Linear(in_features=4, out_features=2, bias=True)
 )
 ```
+
 
 #### 8. 학습
 
@@ -775,7 +779,8 @@ draw_history(history)
 
 ![](../assets/2021-03-10/project-history.png)
 
-#### 8. 테스트
+
+#### 9. 테스트
 
 이제 학습된 모델을 테스트해 봅니다. 모델을 테스트하는 이유는 이 모델이 실제 현장에 배포가 가능한지를 확인해보기 위함입니다. 실제 상황에서는 더 다양하고 엄밀하게 테스트를 진행해야 합니다.
 
@@ -862,7 +867,7 @@ print(valid_loss, valid_acc)
 
 만일 테스트 결과가 만족스럽지 않다면 이전 과정 ('데이터', 'vocabulary 생성', '학습 및 평가용 데이터 생성', '모델링', '학습') 중에서 성능 저하의 원인이 되는 부분을 개선하고 학습하고 테스트하는 과정을 반복해야 합니다. 이런 시행착오를 줄이기 위한 효과적인 방법은 많은 논문 또는 블로그를 참고하는 것입니다.
 
-#### 9. 배포
+#### 10. 배포
 
 이제 테스트 과정이 잘 되었다는 가정하에서 학습됨 모델을 이용해 간단하게 사용자 입력을 받아서 단어의 명사 여부를 예측해 보겠습니다.
 
