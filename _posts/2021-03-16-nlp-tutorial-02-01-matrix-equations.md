@@ -104,29 +104,7 @@ tensor([[ 0.6000, -0.3000,  0.3000,  0.6000],
 
 행렬 간의 더하기를 해 보겠습니다. 전제조건은 두 행렬의 모양이 같아야 합니다. 아래 수식과 같이 $m \times n$ 행렬 A와 $m \times n$ 행렬 B의 합은 행렬의 같은 위치의 성분들을 더한 것과 같습니다.
 
-$A=\begin{bmatrix}
-0 & 1 & 2\\
-3 & 4 & 5\\
-6 & 7 & 8
-\end{bmatrix}
-$
-
-1
-
-$$\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix} + \begin{bmatrix}
-b_{11} & \cdots & b_{1n} \\
-\vdots & \ddots & \vdots \\
-b_{m1} & \cdots & b_{mn} \\
-\end{bmatrix} = \begin{bmatrix}
-a_{11} + b_{11} & \cdots & a_{1n} + b_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} + b_{m1} & \cdots & a_{mn} + b_{mn} \\
-\end{bmatrix}$$
-
+![](../assets/2021-03-16/element-wise-sum-01.png)
 
 행렬의 합은 교환법칙, 결합법칙이 성립합니다.
 - $A + B = B + A$
