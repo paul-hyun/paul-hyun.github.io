@@ -616,7 +616,7 @@ cosine 값은 아래그림과 같이 변합나다.
 - 두 벡터의 방향이 직각을 이룰 때 cosine 값이 0이 되어 dot-product 값이 0이 됩니다. 이때를 직교(orthogonality) 한다고 표현합니다.
 - 두 벡터가 방향이 반대 방향일 때 cosine 값이 -1이 되어 dot-product 값이 최소가 됩니다.
 
-즉 dot-product는 두 벡터가 얼마나 유사한지를 비교할 수 있는 기준으로 사용할 수 있습니다.
+즉 <span style="color:blue;">"***dot-product의 결과는 두 벡터가 얼마나 유사한지를 비교할 수 있는 기준으로 사용할 수 있습니다.***"</span>
 
 
 벡터의 dot product를 실습으로 확인해 보겠습니다. 우선 두개의 벡터를 선언합니다.
