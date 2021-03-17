@@ -151,29 +151,7 @@ tensor([[ 0.4000, -0.1000, -0.6000,  0.6000],
 
 아래 수식과 같이 $m \times n$ 행렬 A과 $m \times 1$ 행렬 B의 합은 행렬 B의 열을 n번 복사해서 $m \times n$ 행렬로 변경후 행렬의 같은 위치의 성분들을 더한 것과 같습니다.
 
-$$
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix}
-
-+
-
-\begin{bmatrix}
-b_{11} \\
-\vdots \\
-b_{m1} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-a_{11} + b_{11} & \cdots & a_{1n} + b_{11} \\
-\vdots & \ddots & \vdots \\
-a_{m1} + b_{m1} & \cdots & a_{mn} + b_{m1} \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/element-wise-sum-02.png)
 
 행렬의 브로드캐스팅 더하기를 이제 실습으로 확인해 보겠습니다. 우선 A와 더하기를 할 행렬 B를 선언한 후 더하기를 실행합니다. 이때 행렬 B는 행렬 A와 다르게 **$5 \times 1$** 행렬로 선언합니다.
 
@@ -237,27 +215,7 @@ tensor([[-0.3000, -1.2000, -0.6000, -0.3000],
 
 두번째 경우는 아래 수식과 같이 $m \times n$ 행렬 A과 $1 \times n$ 행렬 B의 합은 행렬 B의 행을 m번 복사해서 $m \times n$ 행렬로 변경후 행렬의 같은 위치의 성분들을 더한 것과 같습니다.
 
-$$
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix}
-
-+
-
-\begin{bmatrix}
-b_{11} & \cdots & b_{1n} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-a_{11} + b_{11} & \cdots & a_{1n} + b_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} + b_{11} & \cdots & a_{mn} + b_{1n} \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/element-wise-sum-03.png)
 
 이제 실습으로 확인해 보겠습니다. 우선 A와 더하기를 할 행렬 B를 선언한 후 더하기를 실행합니다. 행렬 B를 행렬 A와 다르게 **$1 \times 4$** 행렬로 선언합니다.
 
@@ -318,26 +276,7 @@ tensor([[ 1.0000,  0.4000,  0.3000,  0.5000],
 
 두번째 경우는 아래 수식과 같이 $m \times n$ 행렬 A과 $1 \times 1$ 행렬 B의 합은 행렬 B를 복사해서 $m \times n$ 행렬로 변경후 행렬의 같은 위치의 성분들을 더한 것과 같습니다. 이때 B는 행렬이 아닌 실수 스칼라 값이어도 동일합니다.
 
-$$
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix}
-
-+
-
-\begin{bmatrix}
-b_{11} \\
-\end{bmatrix}
-=
-
-\begin{bmatrix}
-a_{11} + b_{11} & \cdots & a_{1n} + b_{11} \\
-\vdots & \ddots & \vdots \\
-a_{m1} + b_{11} & \cdots & a_{mn} + b_{11} \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/element-wise-sum-04.png)
 
 이제 실습으로 확인해 보겠습니다. 우선 A와 더하기를 할 행렬 B를 선언한 후 더하기를 실행합니다. 행렬 B를 행렬 A와 다르게 **$1 \times 1$** 행렬로 선언합니다.
 
@@ -398,30 +337,7 @@ tensor([[ 0.9000,  0.0000,  0.6000,  0.9000],
 
 행렬 간의 element wise product를 해 보겠습니다. element wise product는 기호로는 $\odot$와 같이 표현합니다. 더하기와 비슷하게 전제조건은 두 행렬의 모양이 같아야 합니다. 아래 수식과 같이 $m \times n$ 행렬 A와 $m \times n$ 행렬 B의 element wise product는 행렬의 같은 위치의 성분들을 곱한 것과 같습니다.
 
-$$
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix}
-
-\odot
-
-\begin{bmatrix}
-b_{11} & \cdots & b_{1n} \\
-\vdots & \ddots & \vdots \\
-b_{m1} & \cdots & b_{mn} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-a_{11} \times b_{11} & \cdots & a_{1n} \times b_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} \times b_{m1} & \cdots & a_{mn} \times b_{mn} \\
-\end{bmatrix}
-$$
-
+![](../assets/2021-03-16/element-wise-product-01.png)
 
 행렬의 element wise product는 교환법칙, 결합법칙이 성립합니다.
 - $A \odot B = B \odot A$
@@ -468,29 +384,7 @@ tensor([[-0.1800, -0.0900,  0.1800,  0.4800],
 
 아래 수식과 같이 $m \times n$ 행렬 A과 $m \times 1$ 행렬 B의 합은 행렬 B의 열을 n번 복사해서 $m \times n$ 행렬로 변경후 행렬의 같은 위치의 성분들을 곱한 것과 같습니다.
 
-$$
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix}
-
-\odot
-
-\begin{bmatrix}
-b_{11} \\
-\vdots \\
-b_{m1} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-a_{11} \times b_{11} & \cdots & a_{1n} \times b_{11} \\
-\vdots & \ddots & \vdots \\
-a_{m1} \times b_{m1} & \cdots & a_{mn} \times b_{m1} \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/element-wise-product-02.png)
 
 이제 실습으로 확인해 보겠습니다. 우선 행렬 B를 선언한 후 행렬 A와 element wise product를 실행합니다. 이때 행렬 B는 행렬 A와 다르게 **$5 \times 1$** 행렬로 선언합니다.
 
@@ -531,27 +425,7 @@ tensor([[-0.3000,  0.1500, -0.1500, -0.3000],
 
 두번째 경우는 아래 수식과 같이 $m \times n$ 행렬 A과 $1 \times n$ 행렬 B의 합은 행렬 B의 행을 m번 복사해서 $m \times n$ 행렬로 변경후 행렬의 같은 위치의 성분들을 곱한 것과 같습니다.
 
-$$
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix}
-
-\odot
-
-\begin{bmatrix}
-b_{11} & \cdots & b_{1n} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-a_{11} \times b_{11} & \cdots & a_{1n} \times b_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} \times b_{11} & \cdots & a_{mn} \times b_{1n} \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/element-wise-product-03.png)
 
 이제 실습으로 확인해 보겠습니다. 우선 행렬 B를 선언한 후 행렬 A와 element wise product를 실행합니다. 행렬 B를 행렬 A와 다르게 **$1 \times 4$** 행렬로 선언합니다.
 
@@ -588,26 +462,7 @@ tensor([[ 0.5400, -0.0000, -0.2700, -0.4200],
 
 두번째 경우는 아래 수식과 같이 $m \times n$ 행렬 A과 $1 \times 1$ 행렬 B의 합은 행렬 B를 복사해서 $m \times n$ 행렬로 변경후 행렬의 같은 위치의 성분들을 곱한 것과 같습니다. 이때 B는 행렬이 아닌 실수 스칼라 값이어도 동일합니다.
 
-$$
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix}
-
-\odot
-
-\begin{bmatrix}
-b_{11} \\
-\end{bmatrix}
-=
-
-\begin{bmatrix}
-a_{11} \times b_{11} & \cdots & a_{1n} \times b_{11} \\
-\vdots & \ddots & \vdots \\
-a_{m1} \times b_{11} & \cdots & a_{mn} \times b_{11} \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/element-wise-product-04.png)
 
 이제 실습으로 확인해 보겠습니다. 우선 행렬 B를 선언한 후 행렬 A와 element wise product를 실행합니다. 행렬 B를 행렬 A와 다르게 **$1 \times 1$** 행렬로 선언합니다.
 
@@ -647,30 +502,7 @@ tensor([[-0.4800,  0.2400, -0.2400, -0.4800],
 
 결과는 첫 번째 행렬의 행 개수와 두 번째 행렬의 열 개수와 동일한 $m \times k$ 행렬입니다.
 
-$$
-\begin{bmatrix}
-a_{11} & \cdots & a_{1n} \\
-\vdots & \ddots & \vdots \\
-a_{m1} & \cdots & a_{mn} \\
-\end{bmatrix}
-
-\times
-
-\begin{bmatrix}
-b_{11} & \cdots & b_{1n} \\
-\vdots & \ddots & \vdots \\
-b_{m1} & \cdots & b_{mn} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-a_{11}b_{11} + \cdots + a_{1n}b_{n1} & \cdots & a_{11}b_{1k} + \cdots + a_{1n}b_{nk} \\
-\vdots & \ddots & \vdots \\
-a_{m1}b_{11} + \cdots + a_{mn}b_{n1} & \cdots & a_{1m}b_{1k} + \cdots + a_{mn}b_{nk} \\
-\end{bmatrix}
-$$
-
+![](../assets/2021-03-16/matrix-multiplication-01.png)
 
 행렬의 matrix multiplication은 교환법칙은 성립하지 않고 결합법칙은 성립합니다.
 - $A \times B \ne B \times A$
@@ -683,28 +515,7 @@ $$
 
 이제 matrix multiplication을 행벡터와 열벡터 수식으로 표현하면 아래와 같습니다.
 
-$$
-\begin{bmatrix}
-\vec{a_{1}} \\
-\vdots \\
-\vec{a_{m}} \\
-\end{bmatrix}
-
-\times
-
-\begin{bmatrix}
-\vec{b_{1}} & \cdots & \vec{b_{k}} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-\vec{a_{1}} \bullet \vec{b_{1}} & \cdots & \vec{a_{1}} \bullet \vec{b_{k}} \\
-\vdots & \ddots & \vdots \\
-\vec{a_{m}} \bullet \vec{b_{1}} & \cdots & \vec{a_{m}} \bullet \vec{b_{k}} \\
-\end{bmatrix}
-$$
-
+![](../assets/2021-03-16/matrix-multiplication-02.png)
 
 행렬의 matrix multiplication을 실습으로 확인해 보겠습니다. 우선 행렬 B를 선언 후 행렬 A와 matrix multiplication을 실행합니다. 행렬 B의 행은 행렬 A의 열과 같아야 하고 행렬 B의 열은 아무 값이나 주어도 됩니다. 다음과 같이 **$4 \times 3$** B 행렬을 선언합니다. 두 행렬의 matrix multiplication은 pytorch의 [matmul](https://pytorch.org/docs/stable/generated/torch.matmul.html){:target="_blank"} 함수를 이용해서 구합니다.
 
@@ -764,163 +575,30 @@ tensor([[ 0.4200,  0.0600,  0.2100],
 
 딥러닝에서 수식으로 모델을 설명할 때 열벡터로 표현하는 경우가 대부분입니다. 위 행벡터와 열벡터의 수식을 열벡터로 표현하면 아래와 같습니다. A 행렬과 B의 열벡터들의 matrix multiplication으로 표현할 수 있습니다.
 
-$$
-A
-
-\times
-
-\begin{bmatrix}
-\vec{b_{1}} & \cdots & \vec{b_{k}} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-A \times \vec{b_{1}} & \cdots & A \times \vec{b_{k}} \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/matrix-multiplication-03.png)
 
 행렬과 하나의 열벡터의 matrix multiplication은 다음과 같이 표현할 수 있습니다.
 
-$$
-\begin{bmatrix}
-a_{11} & a_{12} & a_{13} \\
-a_{21} & a_{22} & a_{23} \\
-a_{31} & a_{32} & a_{33} \\
-\end{bmatrix}
-
-\times
-
-\begin{bmatrix}
-x \\
-y \\
-x \\
-\end{bmatrix}
-
-=
-
-x\begin{bmatrix}
-a_{11} \\
-a_{21} \\
-a_{31} \\
-\end{bmatrix}
-
-+
-
-y\begin{bmatrix}
-a_{12} \\
-a_{22} \\
-a_{32} \\
-\end{bmatrix}
-
-+
-
-z\begin{bmatrix}
-a_{13} \\
-a_{23} \\
-a_{33} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-a_{11}x + a_{12}y + a_{13}z \\
-a_{21}x + a_{22}y + a_{23}z \\
-a_{31}x + a_{32}y + a_{33}z \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/matrix-multiplication-04.png)
 
 
 ###### 4.2. 행벡터 연산으로의 해석 
 
-드믈지만 딥러닝에서 수식으로 모델을 설명할 때 행벡터로 표현하는 경우가 있습니다. 위 행벡터와 열벡터의 수식을 행벡터로 표현하면 아래와 같습니다. A의 행벡터와 행렬 B의 matrix multiplication으로 표현할 수 있습니다.
+드물지만 딥러닝에서 수식으로 모델을 설명할 때 행벡터로 표현하는 때도 있습니다. 위 행벡터와 열벡터의 수식을 행벡터로 표현하면 아래와 같습니다. A의 행벡터와 행렬 B의 matrix multiplication으로 표현할 수 있습니다.
 
-$$
-\begin{bmatrix}
-\vec{a_{1}} \\
-\vdots \\
-\vec{a_{m}} \\
-\end{bmatrix}
-
-\times
-
-B
-
-=
-
-\begin{bmatrix}
-\vec{a_{1}} \times B \\
-\cdots \\
-\vec{a_{m}} \times B \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/matrix-multiplication-05.png)
 
 하나의 행벡터와 행렬의 matrix multiplication은 다음과 같이 표현할 수 있습니다.
 
-$$
-\begin{bmatrix}
-x & y & z \\
-\end{bmatrix}
-
-\times
-
-\begin{bmatrix}
-b_{11} & b_{12} & b_{13} \\
-b_{21} & b_{22} & b_{23} \\
-b_{31} & b_{32} & b_{33} \\
-\end{bmatrix}
-
-=
-
-x\begin{bmatrix}
-b_{11} & b_{12} & b_{13} \\
-\end{bmatrix}
-
-+
-
-y\begin{bmatrix}
-b_{21} & b_{22} & b_{23} \\
-\end{bmatrix}
-
-+
-
-z\begin{bmatrix}
-b_{31} & b_{32} & b_{33} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-b_{11}x + b_{21}y + b_{31}z & b_{12}x + b_{22}y + b_{32}z & b_{13}x + b_{23}y + b_{33}z \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/matrix-multiplication-06.png)
+![](../assets/2021-03-16/matrix-multiplication-07.png)
 
 
 #### 5. Dot Product
 
 두 벡터간의 dot product에 대해서 알아보겠습니다. Dot product의 기호는 $\vec{a} \bullet \vec{b}$와 같이 표현합니다. 전제조건은 두 벡터의 차원 수가 같아야 합니다. 아래 수식과 같이 같은 위치의 성분들을 곱해서 전체를 더한 것과 같습니다. 결과는 하나의 스칼라 값입니다.
 
-$$
-\begin{bmatrix}
-a_{1} \\
-\vdots \\
-a_{n} \\
-\end{bmatrix}
-
-\bullet
-
-\begin{bmatrix}
-b_{1} \\
-\vdots \\
-b_{n} \\
-\end{bmatrix}
-
-=
-
-\begin{bmatrix}
-a_{1}b_{1} + \cdots + a_{n}b_{n} \\
-\end{bmatrix}
-$$
+![](../assets/2021-03-16/dot-product-01.png)
 
 두 벡터의 dot product를 기하적으로 표현하면 다음과 같습니다. 두 벡터의 길이의 곱에 두 벡터가 이루는 내각 $\theta$에 cosine을 취한 값을 더하는 것입니다.
 
@@ -928,9 +606,7 @@ $$
 
 위 그림을 수식으로 표현하면 다음과 같습니다.
 
-$$
-\lVert a \rVert \lVert b \rVert \cos \theta
-$$
+![](../assets/2021-03-16/dot-product-02.png)
 
 cosine 값은 아래그림과 같이 변합나다.
 
