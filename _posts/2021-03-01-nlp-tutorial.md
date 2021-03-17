@@ -31,3 +31,10 @@ hidden: true
 
 - [간단한 단어분류 프로젝트를 통한 자연어처리 이해](../nlp-tutorial-01-01-sequence-prediction/)
 - [간단한 문장분류 프로젝트를 통한 자연어처리 이해](../nlp-tutorial-01-02-sentence-prediction)
+
+
+#### 2. Inputs & Outputs
+
+자연어처리에서 데이터를 Neural Network에 입력하거나 결과를 받아보는 방식에 대해 이해하는 과정입니다.
+
+- [자연어처리를 위한 행렬연산](../nlp-tutorial-02-01-matrix-equations/)
