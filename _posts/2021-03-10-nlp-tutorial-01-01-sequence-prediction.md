@@ -78,7 +78,7 @@ Google colab에서 프로젝트에 필요한 환경을 설정하는 과정입니
 우선 필요한 library를 import 합니다.
 
 ```python
-import easydict
+import argparse
 import random
 
 import matplotlib.pyplot as plt
@@ -86,11 +86,11 @@ import numpy as np
 import torch
 ```
 
-다음은 프로젝트에 필요한 환경을 설정합니다.
+다음은 프로젝트에 필요한 환경을 설정합니다. Colab의 경우는 실행 옵션 args를 줄 수 없으므로 로컬 컴퓨터에서 실행하는 것과 비슷하게 가상으로 args를 만들어 줍니다.
 
 ```python
 # 학습환경 설정
-args = easydict.EasyDict({
+args = {
     # random seed value
     "seed": 1234,
     # number of epoch
@@ -103,7 +103,8 @@ args = easydict.EasyDict({
     "save_path": "01-01-sequence-prediction.pth",
     # CPU 또는 GPU 사용여부 결정
     "device": torch.device("cuda" if torch.cuda.is_available() else "cpu")
-})
+}
+args = argparse.Namespace(**args)
 
 print(args)
 ```
@@ -120,7 +121,7 @@ print(args)
 위 코드의 실행 결과는 아래와 같습니다. 이처럼 다양한 설정을 한곳에 모아놓은 것이 더 편리하고 관리하기 쉽습니다.
 
 ```text
-{'seed': 1234, 'n_epoch': 1000, 'n_batch': 2, 'lr': 0.001, 'save_path': '01-01-sequence-prediction.pth', 'device': device(type='cpu')}
+Namespace(device=device(type='cpu'), lr=0.001, n_batch=2, n_epoch=200, save_path='01-01-sequence-prediction.pth', seed=1234)
 ```
 
 다음은 random seed를 설정해줍니다.
@@ -440,9 +441,9 @@ print(hidden.shape, hidden)
 위 코드의 실행 결과는 아래와 같습니다. 숫자로 된 입력이 벡터 형태로 변경된 것을 확인할 수 있습니다. 이 벡터값들은 pytorch가 랜덤하게 초기화한 값으로 아직은 특별한 의미를 갖는 것은 아닙니다. 학습이 진행되면서 목적에 맞는 벡터값으로 변경됩니다.
 
 ```text
-torch.Size([1, 3, 4]) tensor([[[ 0.0323, -1.6593, -1.8773,  0.7372],
-         [ 0.3910,  0.5158, -1.0042,  0.9860],
-         [ 0.3147, -1.0369,  0.2100,  0.6144]]], grad_fn=<EmbeddingBackward>)
+torch.Size([1, 3, 4]) tensor([[[-0.2153,  0.8840, -0.7584, -0.3689],
+         [-0.3424, -1.4020,  0.3206, -1.0219],
+         [ 0.7988, -0.0923, -0.7049, -1.6024]]], grad_fn=<EmbeddingBackward>)
 ```
 
 다음은 위에서 생성된 벡터를 RNN, CNN, Attention 등의 Neural Network을 이용하여 문장 및 단어의 특징을 추출해야 하지만 이번 과정에서는 생략합니다.
@@ -458,12 +459,12 @@ logits = linear(hidden)
 print(logits.shape, logits)
 ```
 
-위 코드의 실행 결과는 아래와 같습니다. 각 단어가 명사(1) 또는 기타(0) 인지 점수를 나타내는 값으로 예측했습니다. 두 값 중 첫 번째 값이 크면 기타(0)이고 두 번째 값이 크면 명사(1)입니다. 아래의 결과에서는 첫 번째 행 경우는 [-0.3154,  0.6910]으로 0.6910이 크기 때문에 명사(1)을 예측한 것이고 두 번째 행 경우는 [ 0.8069,  0.3165]으로 0.8069이 크기 때문에 기타(0)을 예측한 것입니다.
+위 코드의 실행 결과는 아래와 같습니다. 각 단어가 명사(1) 또는 기타(0) 인지 점수를 나타내는 값으로 예측했습니다. 두 값 중 첫 번째 값이 크면 기타(0)이고 두 번째 값이 크면 명사(1)입니다. 아래의 결과에서는 첫 번째 행 경우는 [-0.4171, -0.0059]으로 -0.0059이 크기 때문에 명사(1)을 예측한 것이고 두 번째 행 경우는 [ 0.5810, -0.142]으로 0.5810이 크기 때문에 기타(0)을 예측한 것입니다.
 
 ```text
-torch.Size([1, 3, 2]) tensor([[[-0.3154,  0.6910],
-         [ 0.8069,  0.3165],
-         [ 0.0340, -0.2783]]], grad_fn=<AddBackward0>)
+torch.Size([1, 3, 2]) tensor([[[-0.4171, -0.0059],
+         [ 0.5810, -0.1423],
+         [-0.1847, -0.0125]]], grad_fn=<AddBackward0>)
 ```
 
 다음은 예측된 값과 실제 정답의 차이를 CrossEntropy loss를 계산합니다. 이 loss 값이 줄어드는 방향으로 학습을 진행하고 통상 loss가 줄어들면 모델이 더 잘 예측하게 됩니다. CrossEntropy loss를 계산하고 줄이는 과정은 모델링 과정이 아니고 학습 시에 진행합니다.
@@ -479,7 +480,7 @@ print(loss)
 위 코드의 실행 결과는 아래와 같습니다.
 
 ```text
-tensor(0.9451, grad_fn=<NllLossBackward>)
+tensor(0.9405, grad_fn=<NllLossBackward>)
 ```
 
 
@@ -734,13 +735,13 @@ for e in range(args.n_epoch):
 위 코드의 실행 결과는 아래와 같습니다. 실행 과정을 확인할 수 있습니다. 출력 내용이 많아서 일부만 적어놨습니다.
 
 ```text
-eopch: 110, train_loss: 0.46279, train_acc:  0.77500, valid_loss: 0.44635, valid_acc: 0.81250
-eopch: 111, train_loss: 0.44553, train_acc:  0.81250, valid_loss: 0.44302, valid_acc: 0.81250
-eopch: 112, train_loss: 0.51975, train_acc:  0.61667, valid_loss: 0.43970, valid_acc: 0.93750
+eopch: 101, train_loss: 0.31104, train_acc:  0.90000, valid_loss: 0.39032, valid_acc: 0.80000
+eopch: 102, train_loss: 0.27552, train_acc:  0.90000, valid_loss: 0.38783, valid_acc: 0.80000
+eopch: 103, train_loss: 0.38707, train_acc:  0.90000, valid_loss: 0.38539, valid_acc: 0.90000
   >> save weights: 01-01-sequence-prediction.pth
-eopch: 113, train_loss: 0.51632, train_acc:  0.83333, valid_loss: 0.43642, valid_acc: 0.93750
-eopch: 114, train_loss: 0.43563, train_acc:  0.93750, valid_loss: 0.43317, valid_acc: 0.93750
-eopch: 115, train_loss: 0.44639, train_acc:  0.95000, valid_loss: 0.42994, valid_acc: 0.93750
+eopch: 104, train_loss: 0.38456, train_acc:  0.90000, valid_loss: 0.38283, valid_acc: 0.90000
+eopch: 105, train_loss: 0.38194, train_acc:  0.90000, valid_loss: 0.38019, valid_acc: 0.90000
+eopch: 106, train_loss: 0.26762, train_acc:  0.95000, valid_loss: 0.37748, valid_acc: 0.90000
 ```
 
 지금까지 학습과정을 그래프로 표현할 함수를 정의합니다.
@@ -831,16 +832,16 @@ print(save_dict)
 위 코드의 실행 결과는 아래와 같습니다. 학습 시에 저장한 형식 그대로 'state_dict'와 'valid_acc'값을 확인할 수 있습니다.
 
 ```text
-{'state_dict': OrderedDict([('embed.weight', tensor([[-1.5986,  0.5935, -1.0098,  0.5566],
-        [ 0.2288, -0.8229, -0.8648,  2.0531],
-        [ 0.6113, -0.4870,  1.2000,  0.3480],
-        [-0.0036,  1.4245,  0.0757,  0.7710],
-        [-0.6534, -0.2555,  1.0890,  1.7307],
-        [-0.2264,  0.4584,  0.3790,  1.1410],
-        [ 0.9990,  0.6042,  0.0959,  0.2155],
-        [ 2.0933,  1.2377, -0.1000,  1.0133],
-        [ 1.4456, -1.2784,  1.1496,  1.6060]])), ('linear.weight', tensor([[ 0.1280,  0.0281, -0.2525,  0.2063],
-        [-0.2088,  0.0083, -0.5166, -0.3678]])), ('linear.bias', tensor([ 0.0157, -0.4599]))]), 'valid_acc': 0.775}
+{'state_dict': OrderedDict([('embed.weight', tensor([[ 2.7155,  0.4980,  0.0610, -1.2990],
+        [-0.7324, -0.3980, -0.2705, -1.9422],
+        [-0.2668,  0.4433,  0.5931, -1.4282],
+        [-0.3379,  0.1864,  0.0053,  1.9425],
+        [-0.3850,  1.0388, -0.3790, -1.7818],
+        [ 1.1437,  0.6218, -0.2957, -0.4858],
+        [ 1.0100, -0.1778, -0.9532,  0.6824],
+        [-1.2003, -0.5454,  0.0334,  0.3860],
+        [-2.2246, -0.9424,  1.7303,  0.1896]])), ('linear.weight', tensor([[ 0.1734, -0.1091,  0.3433, -0.6384],
+        [-0.3212,  0.1718, -0.3038,  0.5953]])), ('linear.bias', tensor([0.1352, 0.1751]))]), 'valid_acc': 0.9}
 ```
 
 이제 학습된 weights로 모델을 초기화합니다.
@@ -859,17 +860,17 @@ valid_loss, valid_acc = eval_epoch(args, model, test_loader, loss_fn)
 print(valid_loss, valid_acc)
 ```
 
-위 코드의 실행 결과는 아래와 같습니다. accuracy가 100% 입니다.
+위 코드의 실행 결과는 아래와 같습니다. accuracy가 90% 입니다.
 
 ```text
-0.5432646572589874 1.0
+0.3853941112756729 0.9
 ```
 
 만일 테스트 결과가 만족스럽지 않다면 이전 과정 ('데이터', 'vocabulary 생성', '학습 및 평가용 데이터 생성', '모델링', '학습') 중에서 성능 저하의 원인이 되는 부분을 개선하고 학습하고 테스트하는 과정을 반복해야 합니다. 이런 시행착오를 줄이기 위한 효과적인 방법은 많은 논문 또는 블로그를 참고하는 것입니다.
 
 #### 10. 배포
 
-이제 테스트 과정이 잘 되었다는 가정하에서 학습됨 모델을 이용해 간단하게 사용자 입력을 받아서 단어의 명사 여부를 예측해 보겠습니다.
+테스트 결과가 만족스럽다면 이제 학습된 모델을 실제 서비스에 적용합니다. 간단하게 학습됨 모델을 이용해 사용자 입력을 받아서 단어의 명사 여부를 예측해 보겠습니다.
 
 
 우선 배포용 모델을 생성합니다. 하고 학습된 weights로 모델을 초기화합니다.
@@ -928,10 +929,13 @@ def do_predict(word_to_id, model, string):
 do_predict(word_to_id, model, "당신은 선생님 입니다")
 ```
 
-위 코드의 실행 결과는 아래와 같습니다. 결과는 '당신은(기타:0)', '선생님(명사:1)', '입니다(기타:0)'으로 예측했습니다.
+위 코드의 실행 결과는 아래와 같습니다. 결과는 '당신은(명사:1)', '선생님(명사:1)', '입니다(기타:0)'으로 예측했습니다.
 
 ```text
-['기타', '명사', '기타']
+['명사', '명사', '기타']
 ```
+
+위의 do_predict 함수의 입력을 웹페이지나 모바일에서 받아서 실행하도록 간단한 서비스를 구성할 수 있습니다.
+
 
 지금까지 자연어처리를 이해하는 데 도움이 될 수 있도록 간단한 프로젝트 하나를 만들어봤습니다. 이후 포스트에서 이 프로젝트를 기반으로 자연어처리 관련된 여러 가지 내용을 다뤄보도록 하겠습니다.
