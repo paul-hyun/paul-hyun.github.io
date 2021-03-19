@@ -22,7 +22,7 @@ hidden: true
 
 - [CS224N-2019](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/){:target="_blank"}
 - [yandexdataschool-nlp_course](https://github.com/yandexdataschool/nlp_course){:target="_blank"}
-- [changwookjun-learningspoons](https://github.com/changwookjun/learningspoons){:target="_blank"}
+- [CS 11-747s-2021](http://phontron.com/class/nn4nlp2021/schedule.html){:target="_blank"}
 
 
 #### 1. Simple Project
