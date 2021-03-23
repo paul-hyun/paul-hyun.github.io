@@ -26,7 +26,7 @@ use_math: true
 
 **소스코드**
 
-- Colab에서 동작하는 소스코드는 [02-02-tokenizer-vocabulary.ipynb](https://github.com/paul-hyun/torch-nlp-tutorial/blob/main/02-inputs-outputs/02-02-tokenizer-vocabulary..ipynb){:target="_blank"}을 참고하시면 됩니다.
+- Colab에서 동작하는 소스코드는 [02-02-tokenizer-vocabulary.ipynb](https://github.com/paul-hyun/torch-nlp-tutorial/blob/main/02-inputs-outputs/02-02-tokenizer-vocabulary.ipynb){:target="_blank"}을 참고하시면 됩니다.
 
 
 이번 과정에서는 실습을 위한 **말뭉치파일**이 필요합니다. 한국어위키를 전처리해 놓은 압축파일 [kowiki.txt.zip](https://drive.google.com/file/d/1Hkp-Wt7540rSZlNHDLvk5NlTEdWZLK1h/view?usp=sharing){:target="_blank"}을 다운로드해 구글드라이브의 적당한 위치에 저장하세요.

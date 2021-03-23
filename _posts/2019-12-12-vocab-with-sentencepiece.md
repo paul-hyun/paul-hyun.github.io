@@ -167,3 +167,4 @@ for line in lines:
 - [sentencepiece.py](https://github.com/google/sentencepiece/blob/master/python/sentencepiece.py){:target="_blank"}
 - [데이터 파일](https://drive.google.com/open?id=15XGr-L-W6DSoR5TbniPMJASPsA0IDTiN){:target="_blank"}
 
+좀더 자세한 정보는 새로 추가된 [**자연어처리를 위한 Tokenizer & Vocabulary**](../nlp-tutorial-02-02-tokenizer/)를 참고하세요.
