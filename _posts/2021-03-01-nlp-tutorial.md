@@ -39,4 +39,4 @@ hidden: true
 
 - [자연어처리를 위한 행렬연산](../nlp-tutorial-02-01-matrix-equations/)
 - [자연어처리를 위한 Tokenizer & Vocabulary](../nlp-tutorial-02-02-tokenizer/)
-- [자연어처리를 위한 One-Hot Encoding & Cross-Entropy](../nlp-tutorial-02-03-one-hot/)
+- [자연어처리를 위한 One-Hot Encoding](../nlp-tutorial-02-03-one-hot/)
