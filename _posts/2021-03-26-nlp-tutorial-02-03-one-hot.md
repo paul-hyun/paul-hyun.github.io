@@ -12,7 +12,7 @@ hidden: false
 use_math: true
 ---
 
-이 포스트는 Discrete한 Value를 벡터형태로 표현하는 방법인 one-hot encoding과 분류문제에서 loss로 사용되는 crossentropy에 대해서 이해하는데 목적이 있습니다.
+이 포스트는 Discrete한 Value를 벡터형태로 표현하는 방법인 one-hot encoding에 대해서 이해하는데 목적이 있습니다. One-hot encoding에 대해서 알고 계시는 분은 다음 포스트를 참고하세요.
 
 ###### 미리 확인해야할 포스트
 
