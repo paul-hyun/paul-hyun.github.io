@@ -35,13 +35,19 @@ use_math: true
 
 ###### Likelihood
 
-Likelihood는 한문으로 가능도(可能度) 또는 우도(尤度)라고 표현하며 '특정 사건들이 일어날 가능성'을 의미합니다. 또는 '샘플들과 확률분포의 일관된 정도'를 의미합니다.
+Likelihood는 한문으로 가능도(可能度) 또는 우도(尤度)라고 표현하며 '**특정 사건들이 일어날 가능성**'을 의미합니다. 또는 '**샘플들과 확률분포의 일관된 정도**'를 의미합니다.
 
 ![](../assets/2021-03-29/likelihood-01.png)
 
-정규분포에서 확률은 왼쪽 그림과 같이 $x_1$ 과 $x_2$ 사이의 넓이를 의미합니다. Likelihood는 $x_1$ 과 $x_2$의 확률분포의 값 $f_\theta(x_1)$, $f_\theta(x_2)$의 곱을 의미합니다. 여기서 $\theta$는 확률분포의 파라미터로 정규분포의 경우는 평균 $\mu$과 표준편차 $\sigma$를 의미합니다. Likelihood를 수식으로 표현하면 다음과 같습니다.
+연속확률분포에서 확률은 왼쪽 그림과 같이 $x_1$ 과 $x_2$ 사이의 넓이를 의미합니다. Likelihood는 $x_1$ 과 $x_2$의 확률분포의 값 $f_\theta(x_1)$, $f_\theta(x_2)$의 곱을 의미합니다. 여기서 $\theta$는 확률분포의 파라미터로 정규분포의 경우는 평균 $\mu$과 표준편차 $\sigma$를 의미합니다. Likelihood를 수식으로 표현하면 다음과 같습니다.
 
 $\mathcal{L} (\theta \vert x) = f _\theta (x_1, x_2, ..., x_n) = \prod_i^n f _\theta (x_i)$
+
+![](../assets/2021-03-29/likelihood-03.png)
+
+이산확률분포에서 확률은 왼쪽 그림과 같이 $x_1$, $x_2$의 값을 의미합니다. Likelihood는 $x_1$ 과 $x_2$의 확률값 $p_\theta(x_1)$, $p_\theta(x_2)$의 곱을 의미합니다. 여기서 $\theta$는 확률분포의 파라미터 입니다. Likelihood를 수식으로 표현하면 다음과 같습니다.
+
+$\mathcal{L} (\theta \vert x) = p _\theta (x_1, x_2, ..., x_n) = \prod_i^n p _\theta (x_i)$
 
 간단한 예를 들면 아래 그림과 같이 샘플 $a=(a_1, ..., a_n)$ 와 $b=(b_1, ..., b_n)$의 likelihood를 비교해 보면 샘플 $a$가 확률분포를 더 잘 반영하고 있어서 $\mathcal{L} (\theta \vert a) > \mathcal{L} (\theta \vert b)$입니다.
 
@@ -88,7 +94,7 @@ Negative Log Likelihood를 log likelihood에 음수를 취한 값입니다. Nega
 
 $- \log \mathcal{L} (\theta \vert x) = - \sum_i^n \log f _\theta (x_i)$
 
-Log Likelihood를 최대화하는 문제에서 negative log likelihood를 최소화하는 문제로 변경되었습니다. Negative Log Likelihood 초소화 화는 확률분포를 추정하는 수식은 아래와 같습니다. 이제 negative log likelihood를 loss로 사용하면 딥러닝의 gradient descent를 이용하여 최솟값을 찾을 수 있습니다.
+Log Likelihood를 최대화하는 문제에서 negative log likelihood를 최소화하는 문제로 변경되었습니다. Negative Log Likelihood 최소화 화는 확률분포를 추정하는 수식은 아래와 같습니다. 이제 negative log likelihood를 loss로 사용하면 딥러닝의 gradient descent를 이용하여 최솟값을 찾을 수 있습니다.
 
 $\hat{\theta} = \underset{\theta}{\mathrm{argmin}} - \log \mathcal{L}(\theta \vert x)$
 
@@ -222,7 +228,7 @@ print(np.prod(lh))
 4.895358294629109e-11
 ```
 
-이제 160부터 180까지의 학생 키 평균값을 선언합니다.
+간단하게 표준편차는 5로 고정하고 평균만 변경해보면서 likelihood를 최대화하는 값을 찾아보겠습니다. 우선 비교할 학생 키 평균값을 160부터 180까지의 선언합니다.
 
 ```python
 # mean value
